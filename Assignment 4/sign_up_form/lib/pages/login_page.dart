@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:sign_up_form/components/sign_in_button.dart";
 import "package:sign_up_form/components/textField.dart";
 
 class LoginPage extends StatelessWidget {
@@ -66,6 +67,9 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 25),
 
               // Sign in Button
+              SignInButton(
+                onTap: SignUserIn(),
+              ),
 
               // Or Continue with
 
