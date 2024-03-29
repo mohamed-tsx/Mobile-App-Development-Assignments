@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign_up_form/components/sign_up_button.dart';
 import 'package:sign_up_form/components/textfield.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -7,6 +8,8 @@ class SignUpPage extends StatelessWidget {
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
   final confirmPasswordConroller = TextEditingController();
+
+  void SignUserUp() => {print("Hello World")};
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class SignUpPage extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 50,
+              height: 100,
             ),
             // Username TextFeild
             SignUpTextFeild(
@@ -73,7 +76,12 @@ class SignUpPage extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 10,
+              height: 20,
+            ),
+
+            // Create account button
+            SignInButton(
+              onTap: SignUserUp,
             ),
 
             // Or Register using social media platforms

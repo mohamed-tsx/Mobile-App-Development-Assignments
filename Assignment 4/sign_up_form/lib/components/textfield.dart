@@ -21,14 +21,14 @@ class SignUpTextFeild extends StatelessWidget {
             borderSide: const BorderSide(
               color: Colors.white,
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               width: 3,
               color: Colors.grey,
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
           ),
           fillColor: Colors.grey[100],
           filled: true,
