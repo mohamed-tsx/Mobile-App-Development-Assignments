@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:sign_up_form/components/textfield.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+  SignUpPage({super.key});
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
+  final confirmPasswordConroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: const SafeArea(
+      backgroundColor: Colors.white,
+      body: SafeArea(
           child: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
 
             // Create account Text
-            Text(
+            const Text(
               "Create Account",
               style: TextStyle(
                 fontSize: 20,
@@ -24,13 +29,52 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
 
+            const SizedBox(
+              height: 50,
+            ),
             // Username TextFeild
+            SignUpTextFeild(
+              controller: usernameController,
+              hintText: "Username",
+              obsecureText: false,
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
 
             // Email TextFeild
+            SignUpTextFeild(
+              controller: emailController,
+              hintText: "email@example.com",
+              obsecureText: false,
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
 
             // Password TextFeild
+            SignUpTextFeild(
+              controller: passwordController,
+              hintText: "password",
+              obsecureText: true,
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
 
             // Confirm Password TextFeild
+            SignUpTextFeild(
+              controller: confirmPasswordConroller,
+              hintText: "confirm password",
+              obsecureText: true,
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
 
             // Or Register using social media platforms
 
