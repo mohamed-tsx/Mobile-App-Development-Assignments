@@ -4,18 +4,28 @@ import 'package:google_fonts/google_fonts.dart';
 class BmiTextFeild extends StatelessWidget {
   final controller;
   final String hintText;
+  final formKey;
   const BmiTextFeild({
     super.key,
     required this.controller,
     required this.hintText,
+    required this.formKey,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: TextField(
+      child: TextFormField(
+        key: formKey,
+        keyboardType: TextInputType.number,
         controller: controller,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "Enter Value";
+          }
+          return null;
+        },
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(

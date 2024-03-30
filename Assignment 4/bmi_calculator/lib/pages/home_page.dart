@@ -3,13 +3,44 @@ import 'package:bmi_calculator/components/textFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final weightFormKey = GlobalKey<FormState>();
+  final heightFormKey = GlobalKey<FormState>();
   final weightController = TextEditingController();
   final heightController = TextEditingController();
-  @override
-  void CalculateBmi() => {print("Hello World")};
+  String resultState = "";
+  double result = 0;
 
+  void calculateBmi() {
+    if (weightController.text.isNotEmpty && heightController.text.isNotEmpty) {
+      double weight = double.tryParse(weightController.text) ?? 0.0;
+      double height = double.tryParse(heightController.text) ??
+          0.0 / 100; // Convert height to meters
+      if (height != 0) {
+        setState(() {
+          result = weight / (height * height);
+          if (result < 18.5) {
+            resultState = "UnderWeight";
+          } else if (result > 18.5 && result < 24.9) {
+            resultState = "Normal Weight";
+          } else if (result > 25 && result < 29.9) {
+            resultState = "OverWeight";
+          } else {
+            resultState = "Obese";
+          }
+        });
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -23,37 +54,49 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              // TextFeild for the Height
-              SizedBox(
-                height: 130,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 130,
+            ),
+            BmiTextFeild(
+              controller: weightController,
+              hintText: "Enter Weight In Kg",
+              formKey: weightFormKey,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            BmiTextFeild(
+              controller: heightController,
+              hintText: "Enter Height In Cm",
+              formKey: heightFormKey,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CalculateButton(
+              onTap: calculateBmi,
+            ),
+            const SizedBox(
+              height: 70,
+            ),
+            Text(
+              'BMI:',
+              style: GoogleFonts.poppins(fontSize: 20),
+            ),
+            Text(
+              '${result.toStringAsFixed(2)}',
+              style: GoogleFonts.poppins(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
               ),
-              BmiTextFeild(
-                controller: weightController,
-                hintText: "Enter Weight In Kg",
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-              // TextFeild for the Weight
-              BmiTextFeild(
-                controller: heightController,
-                hintText: "Enter Height In Cm",
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-              // Calculate button
-              CalculateButton(
-                onTap: CalculateBmi,
-              )
-              // SHOW CASE THE BMI
-            ],
-          ),
+            ),
+            Text(
+              '$resultState',
+              style: GoogleFonts.poppins(fontSize: 20),
+            ),
+          ],
         ),
       ),
     );
