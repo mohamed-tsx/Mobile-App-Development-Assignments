@@ -49,6 +49,5 @@ class SocialSignUp extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
