@@ -43,6 +43,22 @@ class StudentRegistrationWelcome extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
               child: Text(
+                style: GoogleFonts.poppins(),
+                "Student Id is: $id",
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(16),
+              margin: EdgeInsets.symmetric(horizontal: 25),
+              decoration: BoxDecoration(
+                color: Colors.grey[200], // Background color
+                borderRadius: BorderRadius.circular(10), // Rounded corners
+              ),
+              child: Text(
                 "Student Full Name is: $fullName",
                 style: GoogleFonts.poppins(),
               ),
@@ -61,22 +77,6 @@ class StudentRegistrationWelcome extends StatelessWidget {
               child: Text(
                 "Student Faculty is: $faculty",
                 style: GoogleFonts.poppins(),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(16),
-              margin: EdgeInsets.symmetric(horizontal: 25),
-              decoration: BoxDecoration(
-                color: Colors.grey[200], // Background color
-                borderRadius: BorderRadius.circular(10), // Rounded corners
-              ),
-              child: Text(
-                style: GoogleFonts.poppins(),
-                "Student Id is: $id",
               ),
             ),
             SizedBox(

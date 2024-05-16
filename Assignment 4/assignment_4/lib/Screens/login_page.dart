@@ -86,12 +86,23 @@ class LoginPage extends StatelessWidget {
                 onTap: () {
                   if (usernameController.text == usernname &&
                       passwordController.text == password) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Successfully Logged in"),
+                      ),
+                    );
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => Welcome(
                           username: usernameController.text,
                         ),
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Invalid Credentials"),
                       ),
                     );
                   }

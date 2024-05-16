@@ -7,7 +7,7 @@ import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
 class StudentRegistrationPage extends StatefulWidget {
-  StudentRegistrationPage({super.key});
+  const StudentRegistrationPage({super.key});
 
   @override
   State<StudentRegistrationPage> createState() =>
@@ -74,7 +74,7 @@ class _StudentRegistrationPageState extends State<StudentRegistrationPage> {
 
                 // password textField
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: DropdownButtonFormField<String>(
                     value: selectedOption,
                     onChanged: (newValue) {
@@ -84,13 +84,13 @@ class _StudentRegistrationPageState extends State<StudentRegistrationPage> {
                     },
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                         ),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           width: 3,
                           color: Colors.grey,
                         ),
@@ -101,7 +101,7 @@ class _StudentRegistrationPageState extends State<StudentRegistrationPage> {
                       hintStyle: GoogleFonts.poppins(color: Colors.grey[500]),
                       hintText: "Faculty",
                     ),
-                    items: [
+                    items: const [
                       DropdownMenuItem(
                         value: "FOC",
                         child: Text("FOC"),
@@ -208,7 +208,7 @@ class _StudentRegistrationPageState extends State<StudentRegistrationPage> {
                             id: id,
                             className: className,
                             fullName: fullName,
-                            faculty: selectedOption!,
+                            faculty: selectedOption,
                             gender: selectedGender,
                           ),
                         ),

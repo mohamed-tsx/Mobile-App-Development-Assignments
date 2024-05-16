@@ -43,7 +43,7 @@ class _BmiHomeScreenState extends State<BmiHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -54,53 +54,55 @@ class _BmiHomeScreenState extends State<BmiHomeScreen> {
           ),
         ),
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 130,
-            ),
-            MyTextField(
-              controller: weightController,
-              hintText: "Enter Weight In Kg",
-              formKey: weightFormKey,
-              obsecureText: false,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextField(
-              controller: heightController,
-              hintText: "Enter Height In Cm",
-              formKey: heightFormKey,
-              obsecureText: false,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Button(
-              text: "Calculate",
-              onTap: calculateBmi,
-            ),
-            const SizedBox(
-              height: 70,
-            ),
-            Text(
-              'BMI:',
-              style: GoogleFonts.poppins(fontSize: 20),
-            ),
-            Text(
-              '${result.toStringAsFixed(2)}',
-              style: GoogleFonts.poppins(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 80,
               ),
-            ),
-            Text(
-              '$resultState',
-              style: GoogleFonts.poppins(fontSize: 20),
-            ),
-          ],
+              MyTextField(
+                controller: weightController,
+                hintText: "Enter Weight In Kg",
+                formKey: weightFormKey,
+                obsecureText: false,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              MyTextField(
+                controller: heightController,
+                hintText: "Enter Height In Cm",
+                formKey: heightFormKey,
+                obsecureText: false,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Button(
+                text: "Calculate",
+                onTap: calculateBmi,
+              ),
+              const SizedBox(
+                height: 70,
+              ),
+              Text(
+                'BMI:',
+                style: GoogleFonts.poppins(fontSize: 20),
+              ),
+              Text(
+                '${result.toStringAsFixed(2)}',
+                style: GoogleFonts.poppins(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                '$resultState',
+                style: GoogleFonts.poppins(fontSize: 20),
+              ),
+            ],
+          ),
         ),
       ),
     );

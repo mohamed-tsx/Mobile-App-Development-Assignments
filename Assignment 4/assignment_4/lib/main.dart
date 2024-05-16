@@ -1,5 +1,6 @@
-import 'package:assignment_4/Screens/registration_page%20copy.dart';
-import 'package:assignment_4/Screens/registration_page.dart';
+import 'package:assignment_4/Screens/calculator.dart';
+import 'package:assignment_4/Screens/home_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StudentRegistrationPage(),
+      home: HomeScreen(),
     );
   }
 }
